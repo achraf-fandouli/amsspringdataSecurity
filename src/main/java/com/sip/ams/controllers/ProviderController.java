@@ -22,6 +22,9 @@ import com.sip.ams.repository.ProviderRepository;
 @Controller
 @RequestMapping("/provider/")
 public class ProviderController {
+
+    public static String uploadDirectoryProvider = System.getProperty("user.dir")+"/src/main/resources/static/uploadsProvider";
+
 	private final ProviderRepository providerRepository;
     @Autowired
     public ProviderController(ProviderRepository providerRepository) {

@@ -19,7 +19,11 @@
     </properties>
     <dependencies>
 
-
+        <!-- send email -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
 
         <!-- Three Security Dependencies required-->
         <dependency>
