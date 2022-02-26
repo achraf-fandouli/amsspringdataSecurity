@@ -42,6 +42,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll() // accès pour tous users
                 .antMatchers("/registration").permitAll() // accès pour tous users
 
+                //enable view for role without restriction
+                .antMatchers("/role/**").permitAll()
+                .antMatchers("/accounts/**").permitAll()
+
                 .antMatchers("/provider/**").hasAuthority("ADMIN")
                 .antMatchers("/article/**").hasAuthority("USER").anyRequest()
                 .authenticated().and().csrf().disable().formLogin() // l'accès de fait via un formulaire
