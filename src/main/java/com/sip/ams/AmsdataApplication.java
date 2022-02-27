@@ -17,9 +17,24 @@ import java.io.File;
 import java.io.IOException;
 
 @SpringBootApplication
-public class AmsdataApplication extends SpringBootServletInitializer implements CommandLineRunner {
+public class AmsdataApplication extends SpringBootServletInitializer
+//	implements CommandLineRunner
+{
+    public static void main(String[] args) {
+        //to create the folder on project starting to stocke article image
+        new File(ArticleController.uploadDirectory).mkdir();
 
-	@Autowired
+        //to create the folder on project starting to stocke provider image
+        new File(ProviderController.uploadDirectoryProvider).mkdir();
+
+        SpringApplication.run(AmsdataApplication.class, args);
+    }
+
+
+
+
+
+/*	@Autowired
 	private JavaMailSender javaMailSender;
 
 	void sendEmail() {
@@ -32,7 +47,7 @@ public class AmsdataApplication extends SpringBootServletInitializer implements 
 
 		javaMailSender.send(msg);
 
-	}
+	}*/
 
 /*	void sendEmailWithAttachment() throws MessagingException, IOException {
 		MimeMessage msg = javaMailSender.createMimeMessage();
@@ -55,21 +70,11 @@ public class AmsdataApplication extends SpringBootServletInitializer implements 
 
 	}*/
 
-	@Override
+/*	@Override
 	public void run(String... args) throws MessagingException, IOException {
 		System.out.println("Sending Email...");
 		sendEmail();
 		System.out.println("Done");
-	}
-
-	public static void main(String[] args) {
-		//to create the folder on project starting to stocke article image
-		new File(ArticleController.uploadDirectory).mkdir();
-
-		//to create the folder on project starting to stocke provider image
-		new File(ProviderController.uploadDirectoryProvider).mkdir();
-
-		SpringApplication.run(AmsdataApplication.class, args);
-	}
+	}*/
 
 }
